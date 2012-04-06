@@ -349,6 +349,13 @@ describe("jQuery matchers", function() {
       setFixtures(sandbox());
       expect('#sandbox').toEqual('#sandbox');
     });
+
+    it("should not apply to built in matchers that are also in Jasmine jQuery", function() {
+      setFixtures(sandbox());
+      expect('+').toBe('+');
+      expect('just a string').toBe('just a string');
+    });
+
   });
 
   describe("toHaveAttr", function() {
